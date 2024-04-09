@@ -88,13 +88,34 @@
             <h2>Cadastrar Cliente</h2>
             <div id="login-form">
                 @csrf
-                <input type="text" name="nome" id="username" placeholder="Nome Completo">
-                <input type="text" name="email" id="username" placeholder="E-mail">
-                <input type="text" name="cpf" id="username" placeholder="CPF">
+                <input type="text" name="nome" placeholder="Nome Completo">
+                <input type="text" name="email" placeholder="E-mail">
+                <input type="text" name="cpf" placeholder="CPF">
                 <button type="submit" value="Enviar">Enviar</button>
             </div>
         </div>
     </form>
+
+    <script>
+        // Função para formatar CPF com pontos e traço
+        function formatarCPF(cpf) {
+            // Verifica se o CPF está no formato padrão (apenas números)
+            if (/^\d{11}$/.test(cpf)) {
+                // Adiciona os pontos e traço
+                return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else {
+                return cpf; // Retorna o CPF sem formatação caso não esteja no formato padrão
+            }
+        }
+        
+        // Chama a função formatarCPF quando o documento HTML for carregado para formatar o CPF inicialmente
+        window.onload = function() {
+            var cpfInput = document.querySelector('input[name="cpf"]');
+            cpfInput.addEventListener('keyup', function() {
+                this.value = formatarCPF(this.value);
+            });
+        };
+    </script>
 </body>
 </html>
 

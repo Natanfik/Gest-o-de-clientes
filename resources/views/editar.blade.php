@@ -89,15 +89,33 @@
             <div id="login-form">
                 @csrf
                 @method('PUT')
-                <input type="text" name="nome" id="username" placeholder="Nome Completo">
-                <input type="text" name="email" id="username" placeholder="E-mail">
-                <input type="text" name="cpf" id="username" placeholder="CPF">
-                <button type="submit" value="Enviar">Confirmar</button>
+                <input type="text" name="nome" value="{{ $cliente['nome'] }}" placeholder="Nome Completo">
+                <input type="text" name="email" value="{{ $cliente['email'] }}" placeholder="E-mail">
+                <input type="text" name="cpf" value="{{ ($cliente['cpf']) }}" placeholder="CPF">
+                <button type="submit">Confirmar</button>
             </div>
         </div>
     </form>
+    <script>
+        // Função para formatar CPF com pontos e traço
+        function formatarCPF(cpf) {
+            // Verifica se o CPF está no formato padrão (apenas números)
+            if (/^\d{11}$/.test(cpf)) {
+                // Adiciona os pontos e traço
+                return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else {
+                return cpf; // Retorna o CPF sem formatação caso não esteja no formato padrão
+            }
+        }
+
+        // Chama a função formatarCPF quando o documento HTML for carregado para formatar o CPF inicialmente
+        window.onload = function() {
+            var cpfInput = document.querySelector('input[name="cpf"]');
+            cpfInput.value = formatarCPF(cpfInput.value);
+        };
+    </script>
 </body>
-</html>
+</html> 
 
 
 

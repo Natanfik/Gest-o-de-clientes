@@ -100,18 +100,19 @@
         <form action="{{ route('cliente.create') }}" method="GET">
             <button class="novo_cliente" type="submit">Novo Cliente</button>
         </form>
-            @foreach ($clientes as $c)
+            @foreach($clientes as $c)
                 <li>
                     <a class="nomes">{{ $c['nome'] }}</a>
                     <a href="{{ route('cliente.edit', $c['id'] )}}"> Editar</a>
                     <a href="{{ route('cliente.show', $c['id'] )}}"> Info</a>
-                    <form action="{{ route('cliente.destroy', $c['id'] )}}" method="POST">
+                 
+                    <form action="{{ route('cliente.destroy', $c['id'] )}}" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este cliente?')">
                         @csrf
                         @method('DELETE')
                         <input class="apagar" type="submit" value="Apagar">
                     </form>
                 </li> 
-            @endforeach
+            @endforeach   
     </div>
 </body>
 </html>

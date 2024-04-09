@@ -14,7 +14,8 @@ use App\Http\Controllers\ClienteControladora;
 */
 
 Route::get('/', function () {
-    return view('cadastro');
+    return view('inicio');
+
 });
 
 Route::resource('cliente', ClienteControladora::class);

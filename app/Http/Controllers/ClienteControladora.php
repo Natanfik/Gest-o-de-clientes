@@ -8,7 +8,7 @@ class ClienteControladora extends Controller
 {
 
     private $clientes = [
-        ['id'=>1, 'nome'=>'ademir', 'email'=>'nome@exemplo.com', 'cpf'=>'12345678912'],
+        ['id'=>1, 'nome'=>'Sansumg', 'email'=>'nome@exemplo.com', 'cpf'=>'12345678912'],
         ['id'=>2, 'nome'=>'joao', 'email'=>'nome@exemplo.com', 'cpf'=>'12345678912'],
         ['id'=>3, 'nome'=>'pedro', 'email'=>'nome@exemplo.com', 'cpf'=>'12345678912'],
         ['id'=>4, 'nome'=>'juliane', 'email'=>'nome@exemplo.com', 'cpf'=>'12345678912']
@@ -26,13 +26,22 @@ class ClienteControladora extends Controller
     public function index()
     {
         $clientes = session('clientes'); // Supondo que você tenha uma lista de clientes na sessão
-        return view('index')->with('clientes', $clientes);
+        return view('lista')->with('clientes', $clientes);
     
     }
 
     /**
      * Show the form for creating a new resource.
      */
+    private function buscar($id, $clientes) {
+        foreach ($clientes as $index => $cliente) {
+            if ($cliente['id'] === $id) {
+                return echo $index;
+            }
+        }
+        return null; // Retorna null se o cliente com o ID especificado não for encontrado
+    }
+
     public function create()
     {
         return view('cadastro');
