@@ -1,0 +1,153 @@
+/* Estilos do calendário */
+body {
+    background-image: url("https://img.freepik.com/vetores-gratis/fundo-de-solsticio-de-inverno-em-aquarela_23-2149177804.jpg");
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 70%; /* Reduzindo a altura para 70% da altura total */
+}
+
+.calendar-container,
+.presence-container {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ajustando para ocupar toda a altura disponível */
+    overflow-y: auto;
+
+}
+
+.calendar-container {
+    background-color: #373c4f;
+    color: #fff;
+}
+
+.add-presence {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Centralizando os elementos verticalmente */
+}
+
+.add-presence input,
+.add-presence select,
+.add-presence button {
+    width: 80%; /* Definindo a largura dos elementos */
+}
+
+.add-presence a {
+    color: #333333;
+    padding: 6px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.calendar .month {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.calendar .weekdays, .calendar .days {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weekdays div, .days div {
+    width: 14%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+.days div {
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.days div:hover, .days .selected {
+    background-color: #5e7e46;
+    color: #fff;
+}
+
+.presence-container {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.presence-list {
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.presence-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.presence-list li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-presence {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-presence input, .add-presence select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-presence button {
+    padding: 10px;
+    background-color: #5e7e46;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-presence button:hover {
+    background-color: #4a6332;
+}
